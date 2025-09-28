@@ -21,6 +21,7 @@ const envFields = [
   "JWT_REFRESH_EXPIRES_IN",
 
   // Super Admin
+  "SUPER_ADMIN_NAME",
   "SUPER_ADMIN_EMAIL",
   "SUPER_ADMIN_PASS",
 ] as const;
