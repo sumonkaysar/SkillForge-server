@@ -3,6 +3,7 @@ import { Server } from "http";
 import app from "./app";
 import { prisma } from "./app/config/db.config";
 import env from "./app/config/env.config";
+import seedSuperAdmin from "./app/utils/seedSuperAdmin";
 
 let server: Server;
 
@@ -21,6 +22,7 @@ const main = async () => {
 };
 
 (async () => {
+  await seedSuperAdmin();
   await main();
 })();
 
