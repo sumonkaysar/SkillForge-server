@@ -13,6 +13,18 @@ datasource db {
   url      = env("DB_URL")
 }
 
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  USER
+}
+
+enum UserStatus {
+  ACTIVE
+  BLOCKED
+  DELETED
+}
+
 model User {
   id Int @id @default(autoincrement())
   name String
@@ -26,14 +38,22 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
-enum UserRole {
-  SUPER_ADMIN
-  ADMIN
-  USER
+enum SkillSet {
+  FRONTEND
+  BACKEND
+  DATABASE
+  TOOLS
+  SOFT_SKILL
 }
 
-enum UserStatus {
-  ACTIVE
-  BLOCKED
-  DELETED
+model Skill {
+  id Int @id @default(autoincrement())
+  name String
+  Icon String?
+  color String?
+  skillset SkillSet
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique(fields: [name, skillset], name: "skill_name_skillset_unique")
 }

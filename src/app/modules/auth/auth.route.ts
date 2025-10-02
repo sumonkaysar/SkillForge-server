@@ -2,11 +2,15 @@ import { Router } from "express";
 import checkAuth from "../../middlewares/checkAuth";
 import validateRequest from "../../middlewares/validateRequest";
 import { AuthControllers } from "./auth.controller";
-import { changePasswordZodSchema } from "./auth.validation";
+import { changePasswordZodSchema, loginZodSchema } from "./auth.validation";
 
 const router = Router();
 
-router.post("/login", AuthControllers.credentialsLogin);
+router.post(
+  "/login",
+  validateRequest(loginZodSchema),
+  AuthControllers.credentialsLogin
+);
 
 router.get("/logout", AuthControllers.logout);
 

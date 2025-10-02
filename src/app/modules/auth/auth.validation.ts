@@ -16,7 +16,7 @@ const passwordZodSchema = (label: string) =>
       `${label} must include at least 1 uppercase, 1 lowercase, and 1 special character (! @ # $ % ^ & *)`
     );
 
-export const registerZodSchema = z.object({
+export const loginZodSchema = z.object({
   email: z
     .email({
       error: (issue) =>
