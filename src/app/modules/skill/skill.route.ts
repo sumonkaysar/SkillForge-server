@@ -13,15 +13,15 @@ router.patch(
   SkillControllers.addSkill
 );
 
-router.patch("/all", checkAuth(), SkillControllers.getAllSkills);
+router.get("/all", checkAuth(), SkillControllers.getAllSkills);
 
-router.patch("/all/grouped", SkillControllers.getSkillsGroupedBySkillset);
+router.get("/all/grouped", SkillControllers.getSkillsGroupedBySkillset);
 
 router.patch(
-  "/edit",
+  "/edit/:skillId",
   checkAuth(),
   validateRequest(skillUpdateZodSchema),
   SkillControllers.editSkill
 );
 
-export const AuthRoutes = router;
+export const SkillRoutes = router;

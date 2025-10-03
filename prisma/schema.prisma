@@ -64,15 +64,16 @@ model Skill {
 model Project {
   id Int @id @default(autoincrement())
   name String
+  a String
   title String
   description String
   longDescription String?
   images String[]
   features String[]
   category String?
-  githubFrontend String?
-  githubBackend String?
-  liveDemo String?
+  githubFrontend String
+  githubBackend String
+  liveDemo String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
