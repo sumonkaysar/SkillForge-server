@@ -38,12 +38,12 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
-enum SkillSet {
+enum Skillset {
   FRONTEND
   BACKEND
   DATABASE
   TOOLS
-  SOFT_SKILL
+  SOFT_SKILLS
 }
 
 model Skill {
@@ -51,9 +51,30 @@ model Skill {
   name String
   Icon String?
   color String?
-  skillset SkillSet
+  skillset Skillset
+  index Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  projects  Project[] @relation("ProjectSkills")
+  
   @@unique(fields: [name, skillset], name: "skill_name_skillset_unique")
+}
+
+model Project {
+  id Int @id @default(autoincrement())
+  name String
+  title String
+  description String
+  longDescription String?
+  images String[]
+  features String[]
+  category String?
+  githubFrontend String?
+  githubBackend String?
+  liveDemo String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  techStack Skill[] @relation("ProjectSkills")
 }
