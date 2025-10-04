@@ -64,7 +64,6 @@ model Skill {
 model Project {
   id Int @id @default(autoincrement())
   name String
-  a String
   title String
   description String
   longDescription String?
