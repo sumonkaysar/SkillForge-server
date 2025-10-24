@@ -51,7 +51,7 @@ enum Skillset {
 model Skill {
   id Int @id @default(autoincrement())
   name String
-  Icon String?
+  icon String?
   color String?
   skillset Skillset
   index Int?

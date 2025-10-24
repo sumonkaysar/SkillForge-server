@@ -6,7 +6,7 @@ import { skillUpdateZodSchema, skillZodSchema } from "./skill.validation";
 
 const router = Router();
 
-router.patch(
+router.post(
   "/add",
   checkAuth(),
   validateRequest(skillZodSchema),

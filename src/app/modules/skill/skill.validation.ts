@@ -12,7 +12,7 @@ export const skillZodSchema = z.object({
     .nonempty("Name can't be blank")
     .min(5, "Name must be at least 5 characters long.")
     .max(20, "Name can't be more than 20 characters."),
-  Icon: z
+  icon: z
     .string("Icon must be a string")
     .nonempty("Icon can't be blank")
     .optional(),
@@ -39,7 +39,7 @@ export const skillUpdateZodSchema = z.object({
     .min(5, "Name must be at least 5 characters long.")
     .max(20, "Name can't be more than 20 characters.")
     .optional(),
-  Icon: z
+  icon: z
     .string("Icon must be a string")
     .nonempty("Icon can't be blank")
     .optional(),

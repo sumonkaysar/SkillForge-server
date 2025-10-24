@@ -21,14 +21,7 @@ const addSkill = async (payload: Prisma.SkillCreateInput) => {
 };
 
 const getAllSkills = async () => {
-  const skills = await prisma.skill.findMany({
-    select: {
-      name: true,
-      Icon: true,
-    },
-    orderBy: { name: "asc" },
-  });
-
+  const skills = await prisma.skill.findMany();
   return skills;
 };
 
@@ -41,7 +34,7 @@ const getSkillsGroupedBySkillset = async () => {
         where: { skillset },
         select: {
           name: true,
-          Icon: true,
+          icon: true,
           color: true,
           skillset: true,
         },
