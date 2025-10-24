@@ -6,4 +6,4 @@ const router = Router();
 
 router.patch("/me", checkAuth(), UserControllers.getMe);
 
-export const AuthRoutes = router;
+export const UserRoutes = router;
